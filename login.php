@@ -15,8 +15,8 @@
             <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
             <hr class="my-4">
             
-                <a class="btn btn-primary btn-lg" href="#" onClick="showRestroLogin()" role="button">Restaurant</a>
-                <a class="btn btn-primary btn-lg" href="#" onClick="showUserLogin()" role="button">User</a>
+                <a class="btn btn-primary btn-lg" href="#restrologinform" onClick="showRestroLogin()" role="button">Restaurant</a>
+                <a class="btn btn-primary btn-lg" href="#userloginform" onClick="showUserLogin()" role="button">User</a>
                 <br>
                 <small>Haven't registered yet? <a href="signup.php">Sign Up</a></small>
   
