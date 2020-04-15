@@ -3,7 +3,7 @@
     $q = "SELECT * FROM users";           
     $query = mysqli_query($conn,$q);   
     $rows = mysqli_num_rows($query);
-    echo $rows;
+    // echo $rows;
 
 ?>
 
@@ -53,8 +53,8 @@
         $user_registration_query = "insert into users(name,email,contact_no,city,password) values('".$user_name."','".$user_email."','".$user_contact."','".$user_city."','".$user_password."')";
 
         $res = mysqli_query($conn,$user_registration_query);
-        echo $user_registration_query;
-        echo "res = ".$res;
+        // echo $user_registration_query;
+        // echo "res = ".$res;
         if($res){
             header("Location: ../login.php?successsignup");
             exit;
@@ -76,9 +76,9 @@
         $fetched_data = mysqli_query($conn,$user_login_query);
         
         $temp_row_count = mysqli_fetch_assoc($fetched_data); 
-        var_dump($temp_row_count);
+        // var_dump($temp_row_count);
         if($temp_row_count>0){
-            echo "successfully login!";
+            // echo "successfully login!";
             $_SESSION['utype']="user";
             $_SESSION['uid']=$temp_row_count['uid'];
             $_SESSION['username']=$temp_row_count['name'];
@@ -86,7 +86,7 @@
             exit;
         }
         else{
-            echo "Ahh! crap :( \n wrong email/password.";
+            // echo "Ahh! crap :( \n wrong email/password.";
             header("Location: ../login.php?err");
             exit;
         }
@@ -104,9 +104,9 @@
         $fetched_data = mysqli_query($conn,$restro_login_query);
         
         $temp_row_count = mysqli_fetch_assoc($fetched_data); 
-        var_dump($temp_row_count);
+        // var_dump($temp_row_count);
         if($temp_row_count>0){
-            echo "successfully login!";
+            // echo "successfully login!";
             
             $_SESSION['utype']='restro';
             $_SESSION['rid'] = $temp_row_count['rid'];
@@ -114,7 +114,7 @@
             exit;
         }
         else{
-            echo "Ahh! crap :( \n wrong email/password.";
+            // echo "Ahh! crap :( \n wrong email/password.";
             header("Location: ../login.php?err");
             exit;
         }
@@ -143,9 +143,9 @@
         
         $insert_item_query="insert into food_items(name,price,is_veg,rid,image) 
         values('".$item_name."','".$item_price."','".$item_preference."','".$restro_id."','".$target_file."')";
-        echo $insert_item_query;
+        // echo $insert_item_query;
         $res=mysqli_query($conn,$insert_item_query);
-        echo "res = ".$res;
+        // echo "res = ".$res;
         if($res){
             header("Location: ../add_menu_item.php?success");
         } else {
