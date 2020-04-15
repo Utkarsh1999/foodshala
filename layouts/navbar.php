@@ -61,7 +61,7 @@
         } else {
           ?>
       <li class="nav-item">
-        <a class="nav-link disabled" href="cart.php" title="Please Login as user to enable this feature"><i class="fas fa-shopping-cart"></i>CART</a>
+        <a class="nav-link" href="" onclick="showAlert();"><i class="fas fa-shopping-cart"></i>CART</a>
         
       </li>
 
