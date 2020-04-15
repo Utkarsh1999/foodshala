@@ -73,7 +73,7 @@
                      $restroName=mysqli_fetch_assoc($restroRes);
                     ?>
                     <small><?=$restroName['name'] ?></small>
-                        <p class="card-text text-small">Rs. 200/-</p>
+                        <p class="card-text text-small"><?=$foodItem['price'] ?>/-</p>
                         <ul class="list-group list-group-flush">
                             <!-- <li class="list-group-item">Rs. 200/-</li> -->
                             
