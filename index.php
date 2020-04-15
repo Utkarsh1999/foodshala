@@ -93,7 +93,18 @@
                             <li class="list-group-item">
                                 <form action="add_to_cart.php" method="post">
                                     <input type="text" name="iid" value=<?php echo $foodItem['iid']; ?> hidden />
-                                    <button type="submit" class="btn btn-info <?=$pointer ?>" name="add_to_cart" <?php echo $disable; ?>><i class="fas fa-cart-plus" ></i>&nbsp;Add to Cart</button>
+                                    
+                                    <?php
+                                     if(!isset($_SESSION['uid'])){
+                                    ?>
+                                        <button type="submit" onclick="showAlert();" class="btn btn-secondary" name="add_to_cart"><i class="fas fa-cart-plus" ></i>&nbsp;Add to Cart</button>     
+                                    <?php 
+                                    } else {
+                                        ?>
+                                        <button type="submit" class="btn btn-info" name="add_to_cart"><i class="fas fa-cart-plus" ></i>&nbsp;Add to Cart</button>
+                                     <?php
+                                     }
+                                    ?>
                                 </form>
                             </li>
                         </ul>
@@ -110,6 +121,12 @@
     </div>
     <!-- Menu Item Card Holder end -->
 </main>
+
+<script>
+function showAlert(){
+    alert("please login as user to enable this feature!!");
+}
+</script>
 
 <?php
     include('./layouts/footer.php');
