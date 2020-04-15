@@ -7,8 +7,8 @@
             <p class="lead">Please remember you Email Id and Password for Login.</p>
             <hr class="my-4">
             <!-- <p class="center sticky-top">Register as:  -->
-                <a class="btn btn-primary btn-lg" href="#" onClick="showRestroSignUp()" role="button">Register as Restaurant</a>
-                <a class="btn btn-primary btn-lg" href="#" onClick="showUserSignUp()" role="button">Register as User</a>
+                <a class="btn btn-primary btn-lg" href="#restroform" onClick="showRestroSignUp()" role="button">Register as Restaurant</a>
+                <a class="btn btn-primary btn-lg" href="#userform" onClick="showUserSignUp()" role="button">Register as User</a>
                 <br>
                 <small>Already registered? <a href="login.php">Login</a></small>
             <!-- </p> -->

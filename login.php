@@ -8,6 +8,30 @@
 
 
 <main>
+            <?php 
+                if(isset($_GET['err'])){
+            ?>
+                <div class="alert alert-danger" role="alert">
+                    Oops! Something went wrong.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <?php
+                }
+            ?>
+            <?php 
+                if(isset($_GET['successsignup'])){
+            ?>
+                <div class="alert alert-success" role="alert">
+                    Successfully registered. Please Login!!
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <?php
+                }
+            ?>
     <div class="container container-flui col-md-12 row mt-4">
     <!-- jumbotron start -->
     <div class="jumbotron col-md">
@@ -53,18 +77,7 @@
 
         <!--Restro Login form start  -->
         <div class="container card col-md pb-4 d-none" id="restrologinform">
-            <?php 
-                if(isset($_GET['err'])){
-            ?>
-                <div class="alert alert-danger" role="alert">
-                    Oops! Something went wrong.
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            <?php
-                }
-            ?>
+            
             <div class="row mx-auto pt-4 pb-4">
                 
                     <h3>Restaurant Login</h3>

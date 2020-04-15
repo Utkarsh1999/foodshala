@@ -26,8 +26,15 @@
         $restro_registration_query = "insert into restaurant(owner_name,owner_contactno,name,contact_no,email,address,city,state,pincode,password) values('".$owner_name."','".$owner_contact."','".$restro_name."','".$restro_contact."','".$restro_email."','".$restro_address."','".$restro_city."','".$restro_state."','".$restro_zip."','".$restro_password."')";
 
         $res = mysqli_query($conn,$restro_registration_query);
-        echo $restro_registration_query;
-        echo "$res = ".$res;
+        
+        if($res){
+
+            header("Location: ../login.php?successsignup");
+            exit;
+        } else {
+            header("Location: ../signup.php?err");
+            exit;
+        }
 
     }
 ?>
@@ -48,6 +55,13 @@
         $res = mysqli_query($conn,$user_registration_query);
         echo $user_registration_query;
         echo "res = ".$res;
+        if($res){
+            header("Location: ../login.php?successsignup");
+            exit;
+        } else {
+            header("Location: ../signup.php?err");
+            exit;
+        }
 
     }
 ?>
@@ -65,6 +79,9 @@
         var_dump($temp_row_count);
         if($temp_row_count>0){
             echo "successfully login!";
+            $_SESSION['utype']="user";
+            $_SESSION['uid']=$temp_row_count['uid'];
+            $_SESSION['username']=$temp_row_count['name'];
             header("Location: ../index.php?successLogin");
             exit;
         }
@@ -110,6 +127,32 @@
 <!-- add item handler -->
 <?php
     if(isset($_POST['iadd_item'])){
+        $item_name = mysqli_real_escape_string($conn,$_POST['iname']);
+        $item_price = mysqli_real_escape_string($conn,$_POST['iprice']);
+        $item_preference = mysqli_real_escape_string($conn,$_POST['ivegradio']);
+        // $item_image = 
+        $restro_id = $_SESSION['rid'];
+        
+
+        $target_dir = "../assets/img/";
+        $actual_file_name = $_FILES["iimage"]["name"];
+        $enc_file_name = md5($actual_file_name.date("m/d/Y h:i:s a", time()));
+        $target_file = $enc_file_name.'.'.basename($_FILES["iimage"]["type"]);
+        
+        echo move_uploaded_file($_FILES["iimage"]["tmp_name"], $target_dir.$target_file);
+        
+        $insert_item_query="insert into food_items(name,price,is_veg,rid,image) 
+        values('".$item_name."','".$item_price."','".$item_preference."','".$restro_id."','".$target_file."')";
+        echo $insert_item_query;
+        $res=mysqli_query($conn,$insert_item_query);
+        echo "res = ".$res;
+        if($res){
+            header("Location: ../add_menu_item.php?success");
+        } else {
+            header("Location: ../add_menu_item.php?err");
+        }
+        
+        
 
     }
 ?>
